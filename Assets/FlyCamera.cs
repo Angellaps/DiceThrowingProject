@@ -28,9 +28,16 @@ public class FlyCamera : MonoBehaviour {
         lastMouse = Input.mousePosition;
         //Mouse  camera angle done.  
 
-        //Keyboard commands
-        float f = 0.0f;
+        //Keyboard commands        
         Vector3 p = GetBaseInput();
+
+        if (Input.GetKeyDown(KeyCode.P)) {
+            if (Time.timeScale == 1.0f)
+                Time.timeScale = 0.0f;
+            else
+                Time.timeScale = 1.0f;
+        }
+
         if (p.sqrMagnitude > 0) { // only move while a direction key is pressed
             if (Input.GetKey(KeyCode.LeftShift)) {
                 totalRun += Time.deltaTime;
@@ -55,6 +62,7 @@ public class FlyCamera : MonoBehaviour {
             else {
                 transform.Translate(p);
             }
+
         }
     }
 

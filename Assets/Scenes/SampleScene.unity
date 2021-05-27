@@ -986,7 +986,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &61502317
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1094,7 +1094,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &66911252
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1369,7 +1369,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &96791866
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1932,6 +1932,7 @@ RectTransform:
   - {fileID: 493689173}
   - {fileID: 218201051}
   - {fileID: 1849118649}
+  - {fileID: 211446172}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2180,7 +2181,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &148372076
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3236,6 +3237,84 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &211446169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 211446172}
+  - component: {fileID: 211446171}
+  - component: {fileID: 211446170}
+  m_Layer: 5
+  m_Name: ErrorCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &211446170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211446169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 45
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 45
+    m_Alignment: 2
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &211446171
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211446169}
+  m_CullTransparentMesh: 0
+--- !u!224 &211446172
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211446169}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 143023814}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 825, y: -388}
+  m_SizeDelta: {x: 258.64465, y: 51.261612}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &212640941
 GameObject:
   m_ObjectHideFlags: 0
@@ -3578,7 +3657,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &220441077
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4447,7 +4526,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &271620541
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6889,7 +6968,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &472620765
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9275,7 +9354,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &624657322
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9498,7 +9577,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &640199090
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11019,7 +11098,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &710837530
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11189,7 +11268,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &718955185
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11706,7 +11785,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &744443885
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13094,7 +13173,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!1 &854613759 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b80d2438505f0e844840b876d504e90c,
@@ -13129,7 +13208,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &854613762
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14716,7 +14795,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &952999000
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15698,7 +15777,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1025971329
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16103,7 +16182,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1067394292
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17165,7 +17244,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1127133132
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19170,7 +19249,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1233020264
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19445,7 +19524,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1240465206
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20291,7 +20370,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1283004517
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20552,7 +20631,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1298213218
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23444,7 +23523,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1469582582
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23858,7 +23937,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1485844038
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24596,7 +24675,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1548819676
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25101,7 +25180,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1559972536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25283,7 +25362,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1562404460
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25654,7 +25733,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1591444058
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27021,7 +27100,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1684684530
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27877,7 +27956,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1748922737
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28109,7 +28188,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1749691070
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29023,7 +29102,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1791198285
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29224,7 +29303,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1796537154
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29617,7 +29696,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1805648293
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31201,7 +31280,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1923568698
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31724,7 +31803,7 @@ MonoBehaviour:
   fourText: {fileID: 493689174}
   fiveText: {fileID: 218201052}
   sixText: {fileID: 1849118650}
-  errorText: {fileID: 0}
+  errorText: {fileID: 211446170}
 --- !u!65 &1947008297
 BoxCollider:
   m_ObjectHideFlags: 0

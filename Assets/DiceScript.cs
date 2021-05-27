@@ -15,7 +15,6 @@ public class DiceScript : MonoBehaviour {
     void Start() {
         rb = GetComponent<Rigidbody>();
         initialPos = transform.position;
-        UpdateUI();
         //Uncomment to clear database cause PlayerPrefs is scuffed like this
         //
         //PlayerPrefs.SetInt("Total", 0);
@@ -26,12 +25,16 @@ public class DiceScript : MonoBehaviour {
         //PlayerPrefs.SetInt("5", 0);
         //PlayerPrefs.SetInt("6", 0);
         //PlayerPrefs.SetInt("faulty toss", 0);
+        UpdateUI();      
         NewThrow();       
     }
 
     void Update() {
         velocity = rb.velocity;
-
+        //When the die has stopped moving, find the empty object attached to each side with the lowest y.
+        //That side is the one touching the ground.
+        //Calling GetResult of that attachment to get the side opposite to the one touching the ground
+        //AKA the Result
         if (velocity == Vector3.zero) {
 
             foreach (Transform child in transform) {
@@ -45,8 +48,14 @@ public class DiceScript : MonoBehaviour {
             NewThrow();
         }
 
+        if (rb.position.y > 1000.0f || rb.position.y < -1000.0f) {
+            UpdateDatabase(0);
+            NewThrow();
+        }
+
     }
 
+    //Variables for the dice tossing.
     void NewThrow() {
         float dirX = Random.Range(0, 500);
         float dirY = Random.Range(0, 500);
@@ -78,6 +87,7 @@ public class DiceScript : MonoBehaviour {
         }
     }
 
+    //Update the Database. Using PlayerPrefs to not lose data.
     void UpdateDatabase(int result) {
         switch (result) {
             case 1:
@@ -126,5 +136,6 @@ public class DiceScript : MonoBehaviour {
         fourText.text = PlayerPrefs.GetInt("4").ToString();
         fiveText.text = PlayerPrefs.GetInt("5").ToString();
         sixText.text = PlayerPrefs.GetInt("6").ToString();
+        errorText.text = PlayerPrefs.GetInt("faulty toss").ToString();
     }
 }
