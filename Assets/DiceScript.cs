@@ -11,6 +11,7 @@ public class DiceScript : MonoBehaviour {
     public Vector3 initialPos;
     public Text totalThrows;
     public Text oneText, twoText, threeText, fourText, fiveText, sixText, errorText;
+    public GameObject floor;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -25,6 +26,15 @@ public class DiceScript : MonoBehaviour {
         //PlayerPrefs.SetInt("5", 0);
         //PlayerPrefs.SetInt("6", 0);
         //PlayerPrefs.SetInt("faulty toss", 0);
+        
+        oneText = GameObject.Find("1Counter").GetComponent<Text>();
+        twoText = GameObject.Find("2Counter").GetComponent<Text>();
+        threeText = GameObject.Find("3Counter").GetComponent<Text>();
+        fourText = GameObject.Find("4Counter").GetComponent<Text>();
+        fiveText = GameObject.Find("5Counter").GetComponent<Text>();
+        sixText = GameObject.Find("6Counter").GetComponent<Text>();
+        errorText = GameObject.Find("ErrorCounter").GetComponent<Text>();
+        totalThrows = GameObject.Find("TotalThrowsText").GetComponent<Text>();
         UpdateUI();      
         NewThrow();       
     }
@@ -38,7 +48,7 @@ public class DiceScript : MonoBehaviour {
         if (velocity == Vector3.zero) {
 
             foreach (Transform child in transform) {
-                if (child.transform.position.y < 0) {                    
+                if (child.transform.position.y < floor.transform.position.y) {                    
                     UpdateDatabase(GetResult(child));
                     UpdateUI();
                 }
@@ -114,7 +124,6 @@ public class DiceScript : MonoBehaviour {
                 PlayerPrefs.SetInt("5", PlayerPrefs.GetInt("5") + 1);
                 PlayerPrefs.SetInt("Total", PlayerPrefs.GetInt("Total") + 1);
                 Debug.Log("Added result '5' in the database.");
-
                 break;
             case 6:
                 PlayerPrefs.SetInt("6", PlayerPrefs.GetInt("6") + 1);
