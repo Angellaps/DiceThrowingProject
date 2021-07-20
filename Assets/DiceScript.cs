@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DiceScript : MonoBehaviour {
 
@@ -12,21 +13,21 @@ public class DiceScript : MonoBehaviour {
     public Text totalThrows;
     public Text oneText, twoText, threeText, fourText, fiveText, sixText, errorText;
     public GameObject floor;
+    public GameObject testOverUI;
+    public bool testOverFlag=false;
+    Transform[] children;
 
-    void Start() {
+    void Start() {        
+        testOverUI = GameObject.Find("Test Over");
+        children = testOverUI.GetComponentsInChildren<Transform>(true);
         rb = GetComponent<Rigidbody>();
         initialPos = transform.position;
-        //Uncomment to clear database cause PlayerPrefs is scuffed like this
-        //
-        //PlayerPrefs.SetInt("Total", 0);
-        //PlayerPrefs.SetInt("1", 0);
-        //PlayerPrefs.SetInt("2", 0);
-        //PlayerPrefs.SetInt("3", 0);
-        //PlayerPrefs.SetInt("4", 0);
-        //PlayerPrefs.SetInt("5", 0);
-        //PlayerPrefs.SetInt("6", 0);
-        //PlayerPrefs.SetInt("faulty toss", 0);
-        
+        //Still using PlayerPrefs cause the whole program was initially made so you can change
+        //some of its parameters in editor mode. If there's time will rewrite and edit all the
+        //prefabs to not use PlayerPrefs anymore since we don't need this anymore.
+
+        ClearDB();
+
         oneText = GameObject.Find("1Counter").GetComponent<Text>();
         twoText = GameObject.Find("2Counter").GetComponent<Text>();
         threeText = GameObject.Find("3Counter").GetComponent<Text>();
@@ -35,8 +36,8 @@ public class DiceScript : MonoBehaviour {
         sixText = GameObject.Find("6Counter").GetComponent<Text>();
         errorText = GameObject.Find("ErrorCounter").GetComponent<Text>();
         totalThrows = GameObject.Find("TotalThrowsText").GetComponent<Text>();
-        UpdateUI();      
-        NewThrow();       
+        UpdateUI();
+        NewThrow();
     }
 
     void Update() {
@@ -48,7 +49,7 @@ public class DiceScript : MonoBehaviour {
         if (velocity == Vector3.zero) {
 
             foreach (Transform child in transform) {
-                if (child.transform.position.y < floor.transform.position.y) {                    
+                if (child.transform.position.y < floor.transform.position.y) {
                     UpdateDatabase(GetResult(child));
                     UpdateUI();
                 }
@@ -57,12 +58,20 @@ public class DiceScript : MonoBehaviour {
             rb.angularVelocity = Vector3.zero;
             NewThrow();
         }
-
+        //Error checker
         if (rb.position.y > 1000.0f || rb.position.y < -1000.0f) {
             UpdateDatabase(0);
             NewThrow();
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            if (testOverFlag == true) {
+                ClearDB();
+                Time.timeScale = 1.0f;
+                Scene scene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(scene.name);
+            }
+        }
     }
 
     //Variables for the dice tossing.
@@ -134,7 +143,19 @@ public class DiceScript : MonoBehaviour {
                 PlayerPrefs.SetInt("faulty toss", PlayerPrefs.GetInt("faulty toss") + 1);
                 PlayerPrefs.SetInt("Total", PlayerPrefs.GetInt("Total") + 1);
                 break;
-        }        
+        }
+        if (PlayerPrefs.GetInt("Total") >= GameObject.Find("EnvironmentCreator").GetComponent<Creation>().totalThrowGoal) {
+            UpdateUI();
+                       
+            foreach (Transform child in children) {
+                child.gameObject.SetActive(true);
+            }
+
+            testOverFlag = true;
+            if (Time.timeScale != 0.0f) {
+                Time.timeScale = 0.0f;
+            }
+        }
     }
 
     void UpdateUI() {
@@ -146,5 +167,16 @@ public class DiceScript : MonoBehaviour {
         fiveText.text = PlayerPrefs.GetInt("5").ToString();
         sixText.text = PlayerPrefs.GetInt("6").ToString();
         errorText.text = PlayerPrefs.GetInt("faulty toss").ToString();
+    }
+
+    void ClearDB() {
+        PlayerPrefs.SetInt("Total", 0);
+        PlayerPrefs.SetInt("1", 0);
+        PlayerPrefs.SetInt("2", 0);
+        PlayerPrefs.SetInt("3", 0);
+        PlayerPrefs.SetInt("4", 0);
+        PlayerPrefs.SetInt("5", 0);
+        PlayerPrefs.SetInt("6", 0);
+        PlayerPrefs.SetInt("faulty toss", 0);
     }
 }

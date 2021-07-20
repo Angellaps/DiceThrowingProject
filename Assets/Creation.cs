@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class Creation : MonoBehaviour {
     public Dropdown modeSelection;
-    string modeSelected;
+    public string modeSelected;
     public Text boardAmountText, diceAmountText;
-    int boardAmount, diceAmount;
-
+    public int boardAmount, diceAmount;
+    public Text totalThrowGoalText;
+    public int totalThrowGoal;
     public GameObject VB1D, VB2D, VB3D, VB4D, VB5D, VB6D;
     public GameObject HB1D, HB2D, HB3D, HB4D, HB5D, HB6D;
     GameObject PrefabSelected;
@@ -23,6 +24,7 @@ public class Creation : MonoBehaviour {
 
         boardAmount = int.Parse(boardAmountText.text);
         diceAmount = int.Parse(diceAmountText.text);
+        totalThrowGoal = int.Parse(totalThrowGoalText.text);
         modeSelected = modeSelection.options[modeSelection.value].text;
 
         switch (modeSelected) {
@@ -92,15 +94,15 @@ public class Creation : MonoBehaviour {
                 Debug.Log("Selection ERROR");
                 break;
         }
-                MainMenu.SetActive(false);
-                ResultsCanvas.SetActive(true);
-                CreatePrefabs(PrefabSelected, boardAmount);
-        }
-
-        public void CreatePrefabs(GameObject GO, int amount) {
-            for (int i = 0; i < amount; i++) {
-                Instantiate(GO, new Vector3(0, 0, i*30), Quaternion.identity);
-            }
-
-        }
+        MainMenu.SetActive(false);
+        ResultsCanvas.SetActive(true);
+        CreatePrefabs(PrefabSelected, boardAmount);
     }
+
+    public void CreatePrefabs(GameObject GO, int amount) {
+        for (int i = 0; i < amount; i++) {
+            Instantiate(GO, new Vector3(0, 0, i * 30), Quaternion.identity);
+        }
+
+    }
+}
